@@ -4,18 +4,20 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Data
 @Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class User {
     
@@ -33,8 +35,7 @@ public class User {
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters long")
     private String password;
-    
-    @Enumerated(EnumType.STRING)
-    private Role role;
+   
+    private String role;
 
 }
